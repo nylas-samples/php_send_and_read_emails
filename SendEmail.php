@@ -29,10 +29,11 @@ $fields = array(
 $headr = array();
 $headr[] = 'Accept: application/json';
 $headr[] = 'Content-type: application/json';
-$headr[] = 'Authorization: Bearer ' . $_ENV['ACCESS_TOKEN'];
+$headr[] = 'Authorization: Bearer ' . $_ENV['API_KEY_V3'];
 
+$url = "https://api.us.nylas.com/v3/grants/" . $_ENV['GRANT_ID'] . "/messages/send";
 # Call the Send Email API
-$ch = curl_init( "https://api.nylas.com/send" );
+$ch = curl_init( $url );
 # Encode the data as JSON
 $payload = json_encode( $fields );
 # Submit the Email information
